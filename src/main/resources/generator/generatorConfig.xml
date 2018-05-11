@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+"-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry
+            location="D:\JAVA\mysql\mysql-connector-java-5.1.46\mysql-connector-java-5.1.46.jar" />
+    <context id="context1" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+            <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3308/ssm"
+                        userId="root" password="123" />
+        <javaModelGenerator targetPackage="com.qmm.integrate.model.po"
+                            targetProject="D:\JAVA\workspace\Integrate\src\main\java" />
+        <sqlMapGenerator targetPackage="com.qmm.integrate.mapper"
+                         targetProject="D:\JAVA\workspace\Integrate\src\main\java" />
+        <javaClientGenerator targetPackage="com.qmm.integrate.mapper"
+                             targetProject="D:\JAVA\workspace\Integrate\src\main\java" type="XMLMAPPER" />
+        <!-- shema 数据库 tableName表明 -->
+        <table schema="user" tableName="user" />
+
+    </context>
+</generatorConfiguration>
