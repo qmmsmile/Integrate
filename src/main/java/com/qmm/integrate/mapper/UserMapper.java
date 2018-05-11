@@ -30,5 +30,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    Page<User> listByPage(User user, RowBounds rowBounds);
+    Page<User> listByPage(@Param(value = "keyword") String keyword, RowBounds rowBounds);
 }

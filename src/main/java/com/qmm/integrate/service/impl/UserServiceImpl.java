@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService{
     public List<User> listUser(UserParam param){
         Integer pageNo = param.getPageNo();
         Integer pageSize = param.getPageSize();
-        Page<User> users = userMapper.listByPage(null, new RowBounds(pageNo, pageSize));
+        Page<User> users = userMapper.listByPage(param.getKeyword(), new RowBounds(pageNo, pageSize));
         return users;
     }
 }

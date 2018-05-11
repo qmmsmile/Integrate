@@ -194,23 +194,14 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="listByPage" resultMap="BaseResultMap" parameterType="com.qmm.integrate.model.po.User">
+  <select id="listByPage" resultMap="BaseResultMap" parameterType="java.lang.String">
     SELECT
     <include refid="Base_Column_List" />
     FROM USER
     <where>
       1 = 1
-      <if test="id != null">
-        AND id = #{id}
-      </if>
-      <if test="userName != null">
-        AND user_name = #{userName}
-      </if>
-      <if test="password != null">
-        AND password = #{password}
-      </if>
-      <if test="age != null">
-        AND age = #{age}
+      <if test="keyword != null">
+        AND (user_name LIKE concat('%',#{keyword},'%') OR password LIKE concat('%',#{keyword},'%') )
       </if>
     </where>
   </select>

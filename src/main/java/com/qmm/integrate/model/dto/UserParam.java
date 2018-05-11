@@ -1,6 +1,7 @@
 package com.qmm.integrate.model.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
  * @date 2018/5/11
  */
 @Data
+@NoArgsConstructor
 public class UserParam {
     /**
      * pageNo
@@ -21,4 +23,9 @@ public class UserParam {
      */
     @NotNull
     private Integer pageSize;
+
+    /**
+     * keyword
+     */
+    private String keyword;
 }
