@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author qinmengmei
@@ -57,6 +59,23 @@ public class UserController {
         DataResult result = DataResult.ok();
         result.setCost(end -start);
         return result;
+    }
+
+    /**
+     * Redis 保存map形式
+     * @return
+     */
+    @GetMapping(value = "/saveMap")
+    public DataResult saveMap(){
+        String key = "hmset";
+        Map map = new HashMap<>();
+        map.put("k1","v1");
+        map.put("k2","v2");
+        map.put("k3","v3");
+        map.put("k4","v4");
+        map.put("k5","v5");
+        redisService.hmset(key,map);
+        return DataResult.ok();
     }
 
 }

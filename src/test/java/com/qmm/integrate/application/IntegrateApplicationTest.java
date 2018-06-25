@@ -1,4 +1,4 @@
-package com.qmm.integrate;
+package com.qmm.integrate.application;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IntegrateApplicationTests {
+public class IntegrateApplicationTest {
 
 	@Test
 	public void contextLoads() {
