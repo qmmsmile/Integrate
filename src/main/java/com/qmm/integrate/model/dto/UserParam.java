@@ -15,13 +15,13 @@ import javax.validation.constraints.NotNull;
 public class UserParam {
     /**
      * pageNo
+     *@NotNull
      */
-    @NotNull
     private Integer pageNo;
     /**
      * pageSize
+     * @NotNull
      */
-    @NotNull
     private Integer pageSize;
 
     /**

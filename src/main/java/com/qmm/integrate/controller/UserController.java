@@ -28,6 +28,11 @@ public class UserController {
     @Autowired
     private RedisService redisService;
 
+    /**
+     * mysql 获取所有联系人，分页
+     * @param param
+     * @return
+     */
     @GetMapping(value = "/listUser")
     public DataResult<List<User>> listUser(@Validated UserParam param) {
         log.info("listUser");
@@ -39,6 +44,11 @@ public class UserController {
         return result;
     }
 
+    /**
+     * Redis 添加数据
+     * @param param
+     * @return
+     */
     @RequestMapping(value = "/save",method = RequestMethod.POST , produces = "application/json;charset=UTF-8" )
     public DataResult save(@Validated @RequestBody RedisParam param){
         long start = System.currentTimeMillis();

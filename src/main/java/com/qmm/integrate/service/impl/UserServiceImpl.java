@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> listUser(UserParam param){
-        Integer pageNo = param.getPageNo();
-        Integer pageSize = param.getPageSize();
+        Integer pageNo = param.getPageNo() == null ? 1 : param.getPageNo();
+        Integer pageSize = param.getPageSize() == null ? 10 : param.getPageSize();
         Page<User> users = userMapper.listByPage(param.getKeyword(), new RowBounds(pageNo, pageSize));
         return users;
     }
