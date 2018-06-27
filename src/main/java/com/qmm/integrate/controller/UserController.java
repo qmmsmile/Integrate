@@ -2,7 +2,9 @@ package com.qmm.integrate.controller;
 
 import com.qmm.integrate.model.dto.RedisParam;
 import com.qmm.integrate.model.dto.UserParam;
+import com.qmm.integrate.model.po.City;
 import com.qmm.integrate.model.po.User;
+import com.qmm.integrate.service.MongodbService;
 import com.qmm.integrate.service.RedisService;
 import com.qmm.integrate.service.UserService;
 import com.qmm.integrate.util.DataResult;
@@ -29,6 +31,9 @@ public class UserController {
 
     @Autowired
     private RedisService redisService;
+
+    @Autowired
+    private MongodbService mongodbService;
 
     /**
      * mysql 获取所有联系人，分页
@@ -76,6 +81,17 @@ public class UserController {
         map.put("k5","v5");
         redisService.hmset(key,map);
         return DataResult.ok();
+    }
+
+    /**
+     * 根据名字查找城市
+     * @param name
+     * @return
+     */
+    @GetMapping(value = "/findCityByName")
+    public DataResult<City> findCityByName(String name){
+        City city = mongodbService.findCityByName(name);
+        return DataResult.ok(city);
     }
 
 }
