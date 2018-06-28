@@ -84,7 +84,7 @@ public class UserController {
     }
 
     /**
-     * 根据名字查找城市
+     * MongoDB 根据名字查找城市
      * @param name
      * @return
      */
@@ -94,4 +94,12 @@ public class UserController {
         return DataResult.ok(city);
     }
 
+    /**
+     * MongoDB获取全部城市
+     * @return
+     */
+    @GetMapping(value = "/listCity")
+    public DataResult<List<City>> listCity(){
+        return DataResult.ok(mongodbService.ListCity());
+    }
 }
